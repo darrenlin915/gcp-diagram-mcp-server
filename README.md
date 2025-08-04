@@ -13,8 +13,6 @@ This MCP server that seamlessly creates [diagrams](https://diagrams.mingrammer.c
 3. Install GraphViz https://www.graphviz.org/
 
 ## Installation
-| [![Install MCP Server](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=gcplabs.gcp-diagram-mcp-server&config=eyJjb21tYW5kIjoidXZ4IGdjcGxhYnMuZ2NwLWRpYWdyYW0tbWNwLXNlcnZlciIsImVudiI6eyJGQVNUTUNQX0xPR19MRVZFTCI6IkVSUk9SIn0sImF1dG9BcHByb3ZlIjpbXSwiZGlzYWJsZWQiOmZhbHNlfQ%3D%3D) | [![Install on VS Code](https://img.shields.io/badge/Install_on-VS_Code-4285F4?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=GCP%20Diagram%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22gcplabs.gcp-diagram-mcp-server%22%5D%2C%22env%22%3A%7B%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%7D%2C%22autoApprove%22%3A%5B%5D%2C%22disabled%22%3Afalse%7D) |
-
 Configure the MCP server in your MCP client configuration (e.g., for Google Cloud CLI, edit `~/.gemini/settings.json`):
 
 ```json
@@ -49,7 +47,11 @@ The Diagrams MCP Server provides the following capabilities:
 4. **Security**: Code scanning to ensure secure diagram generation
 
 ## Quick Example
+Try to input the following questions after you start gemini-cli
+1. Generate a GCP diagram which uses all tf files in @iac/ and save the diagram as iac.png
+2. Generate a GCP diagram which uses all yaml files in @kubernetes-manifests/ and save the diagram as k8s.png
 
+The process is produced the python diagram code in the following format to generate the graph.
 ```python
 from diagrams import Diagram
 from diagrams.gcp.compute import GCE

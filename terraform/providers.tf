@@ -1,11 +1,10 @@
-#!/bin/sh
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,13 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-SERVER="gcp-diagram-mcp-server"
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "6.43.0"
+    }
+  }
+}
 
-# Check if the server process is running
-if pgrep -P 0 -a -l -x -f "/app/.venv/bin/python3 /app/.venv/bin/gcplabs.$SERVER" > /dev/null; then
-  echo -n "$SERVER is running";
-  exit 0;
-fi;
-
-# Unhealthy
-exit 1;
+provider "google" {
+  project = var.gcp_project_id
+  region  = var.region
+}
