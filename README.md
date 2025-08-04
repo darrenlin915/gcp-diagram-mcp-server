@@ -18,42 +18,25 @@ This MCP server that seamlessly creates [diagrams](https://diagrams.mingrammer.c
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Install MCP Server](https://cursor.com/deeplink/mcp-install-light.svg)](https://cursor.com/install-mcp?name=gcplabs.gcp-diagram-mcp-server&config=eyJjb21tYW5kIjoidXZ4IGdjcGxhYnMuZ2NwLWRpYWdyYW0tbWNwLXNlcnZlciIsImVudiI6eyJGQVNUTUNQX0xPR19MRVZFTCI6IkVSUk9SIn0sImF1dG9BcHByb3ZlIjpbXSwiZGlzYWJsZWQiOmZhbHNlfQ%3D%3D) | [![Install on VS Code](https://img.shields.io/badge/Install_on-VS_Code-4285F4?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=GCP%20Diagram%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22gcplabs.gcp-diagram-mcp-server%22%5D%2C%22env%22%3A%7B%22FASTMCP_LOG_LEVEL%22%3A%22ERROR%22%7D%2C%22autoApprove%22%3A%5B%5D%2C%22disabled%22%3Afalse%7D) |
 
-Configure the MCP server in your MCP client configuration (e.g., for Google Cloud CLI, edit `~/.config/gcloud/mcp.json`):
+Configure the MCP server in your MCP client configuration (e.g., for Google Cloud CLI, edit `~/.gemini/settings.json`):
 
 ```json
 {
+  "theme": "Default Light",
+  "selectedAuthType": "gemini-api-key",
   "mcpServers": {
     "gcplabs.gcp-diagram-mcp-server": {
       "command": "uvx",
-      "args": ["gcplabs.gcp-diagram-mcp-server"],
+      "args": [
+        "--from",
+        "gcplabs.gcp-diagram-mcp-server@git+https://github.com/shawnho1018/gcp-diagram-mcp-server.git",
+        "gcplabs.gcp-diagram-mcp-server"
+      ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       },
       "autoApprove": [],
       "disabled": false
-    }
-  }
-}
-```
-
-or docker after a successful `docker build -t gcplabs/gcp-diagram-mcp-server .`:
-
-```json
-{
-  "mcpServers": {
-    "gcplabs.gcp-diagram-mcp-server": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "--interactive",
-        "--env",
-        "FASTMCP_LOG_LEVEL=ERROR",
-        "gcplabs/gcp-diagram-mcp-server:latest"
-      ],
-      "env": {},
-      "disabled": false,
-      "autoApprove": []
     }
   }
 }
