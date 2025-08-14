@@ -1,0 +1,18 @@
+{
+  "selectedAuthType": "vertex-ai",
+  "mcpServers": {
+    "gcplabs.gcp-diagram-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "gcplabs.gcp-diagram-mcp-server@git+https://github.com/shawnho1018/gcp-diagram-mcp-server.git",
+        "gcplabs.gcp-diagram-mcp-server"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "autoApprove": [],
+      "disabled": false
+    }
+  }
+}
