@@ -2,8 +2,10 @@
   "selectedAuthType": "vertex-ai",
   "mcpServers": {
     "gcplabs.gcp-diagram-mcp-server": {
-      "command": "uvx",
+      "command": "uv",
       "args": [
+        "tool",
+        "run",
         "--from",
         "gcplabs.gcp-diagram-mcp-server@git+https://github.com/shawnho1018/gcp-diagram-mcp-server.git",
         "gcplabs.gcp-diagram-mcp-server"
